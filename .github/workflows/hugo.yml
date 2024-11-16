@@ -33,8 +33,8 @@ jobs:
           node-version: '18'
 
       - name: Install npm dependencies
-        working-directory: docs
         run: npm ci
+        working-directory: ${{ github.workspace }}
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -43,13 +43,13 @@ jobs:
           extended: true
 
       - name: Build with Hugo
-        working-directory: docs
         run: hugo --minify
+        working-directory: ${{ github.workspace }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: docs/public
+          path: ${{ github.workspace }}/public
 
   deploy:
     environment:
