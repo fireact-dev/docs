@@ -1,1 +1,27 @@
-#gitignore
+# Hugo default output directory
+/public/
+
+# Node modules
+node_modules/
+
+# Hugo generated files
+.hugo_build.lock
+resources/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE specific files
+.idea
+.vscode
+*.swp
+*.swo
+
+# Docsy specific
+package-lock.json
