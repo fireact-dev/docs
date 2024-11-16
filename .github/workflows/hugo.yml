@@ -33,7 +33,7 @@ jobs:
           node-version: '18'
 
       - name: Install npm dependencies
-        working-directory: ./docs
+        working-directory: docs
         run: npm ci
 
       - name: Setup Hugo
@@ -43,13 +43,13 @@ jobs:
           extended: true
 
       - name: Build with Hugo
-        working-directory: ./docs
+        working-directory: docs
         run: hugo --minify
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./docs/public
+          path: docs/public
 
   deploy:
     environment:
