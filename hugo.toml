@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://fireact-dev.github.io/docs/"
 title = "Fireact Documentation"
 theme = ["docsy"]
 enableGitInfo = true
@@ -28,7 +28,7 @@ copyright = "The Fireact Authors"
 privacy_policy = "https://policies.google.com/privacy"
 
 # Repository configuration
-github_repo = "https://github.com/fireact-dev/main"
+github_repo = "https://github.com/fireact-dev/docs"
 github_branch = "main"
 
 # Enable Lunr.js offline search
@@ -45,8 +45,8 @@ footer_about_enable = true
 # Feedback configuration
 [params.ui.feedback]
 enable = true
-yes = 'Glad to hear it! Please <a href="https://github.com/fireact-dev/main/issues/new">tell us how we can improve</a>.'
-no = 'Sorry to hear that. Please <a href="https://github.com/fireact-dev/main/issues/new">tell us how we can improve</a>.'
+yes = 'Glad to hear it! Please <a href="https://github.com/fireact-dev/docs/issues/new">tell us how we can improve</a>.'
+no = 'Sorry to hear that. Please <a href="https://github.com/fireact-dev/docs/issues/new">tell us how we can improve</a>.'
 
 # Language configuration
 [languages]
@@ -87,6 +87,6 @@ identifier = "roadmap"
 
 [[menu.main]]
 name = "Github"
-url = "https://github.com/fireact-dev/main"
+url = "https://github.com/fireact-dev/docs"
 weight = 60
 identifier = "github"
