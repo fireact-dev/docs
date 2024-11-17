@@ -1,0 +1,46 @@
+// Add styles here to customize the theme
+
+// Navbar styling
+.td-navbar {
+    background: white !important;
+    border-bottom: 2px solid #4F46E5 !important;
+    
+    .nav-link {
+        color: #555 !important;
+        text-decoration: underline !important;
+        text-decoration-thickness: 2px !important;
+        text-underline-offset: 4px !important;
+        
+        &:hover, &:focus {
+            color: var(--primary) !important;
+            text-decoration: none !important;
+        }
+        
+        &.active {
+            color: var(--primary) !important;
+        }
+    }
+    
+    .navbar-brand {
+        color: #555 !important;
+        text-decoration: none !important;
+        
+        &__name {
+            color: #555 !important;
+        }
+    }
+}
+
+// Override any dark theme elements
+.td-navbar-dark {
+    background: white !important;
+}
+
+// Search box styling to match
+.td-search-input {
+    color: #555 !important;
+    
+    &::placeholder {
+        color: rgba(85, 85, 85, 0.6) !important;
+    }
+}
