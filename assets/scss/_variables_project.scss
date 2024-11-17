@@ -4,5 +4,23 @@ Add styles or override variables from the theme here.
 
 */
 
+// Font settings
 $fa-font-path: "../webfonts";
 $fa-font-display: "swap";
+
+// Brand Colors from marketing website
+$primary: #4F46E5;    // Indigo/blue from marketing site
+$secondary: #85b1dd;  // Light blue from marketing site
+
+// Optional: Ensure good contrast for text
+$white: #fff;
+$dark: #222;
+
+// Link colors
+$link-color: $primary;
+$link-hover-color: darken($link-color, 15%);
+
+// Navbar colors
+$navbar-dark-color: $white;
+$navbar-dark-hover-color: rgba($white, .75);
+$navbar-dark-active-color: $white;
