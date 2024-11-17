@@ -9,6 +9,9 @@ defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 enableMissingTranslationPlaceholders = true
 
+# Enable Google Analytics by entering your tracking code
+googleAnalytics = "G-E6S4MWBHE1"
+
 # Image processing configuration
 [imaging]
 resampleFilter = "CatmullRom"
