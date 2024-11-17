@@ -1,5 +1,5 @@
-baseURL = "https://fireact-dev.github.io/docs/"
-title = "Fireact Documentation"
+baseURL = "https://docs.fireact.dev/"
+title = "fireact.dev Documentation"
 theme = ["docsy"]
 enableGitInfo = true
 
@@ -24,11 +24,11 @@ anchor = "smart"
 
 # Site Parameters
 [params]
-copyright = "The Fireact Authors"
+copyright = "fireact.dev"
 privacy_policy = "https://policies.google.com/privacy"
 
 # Repository configuration
-github_repo = "https://github.com/fireact-dev/docs"
+github_repo = "https://github.com/fireact-dev/main"
 github_branch = "main"
 
 # Enable Lunr.js offline search
@@ -87,6 +87,6 @@ identifier = "roadmap"
 
 [[menu.main]]
 name = "Github"
-url = "https://github.com/fireact-dev/docs"
+url = "https://github.com/fireact-dev/main"
 weight = 60
 identifier = "github"
