@@ -1,5 +1,5 @@
 ---
-title: "Fireact Documentation"
+title: "fireact.dev Documentation"
 linkTitle: "Documentation"
 type: "docs"
 no_list: true
@@ -11,55 +11,85 @@ cascade:
 ---
 
 {{% pageinfo %}}
-This is the main documentation section for Fireact. Here you'll find comprehensive guides and documentation to help you start working with Fireact as quickly as possible.
+This is the main documentation section for fireact.dev. Here you'll find comprehensive guides and documentation to help you start working with fireact.dev as quickly as possible.
 {{% /pageinfo %}}
 
-## Getting Started
+## What is fireact.dev?
 
-Before you begin, make sure you have the following installed:
+fireact.dev is a comprehensive open-source framework for building production-ready SaaS applications with Firebase, React, TypeScript, and Stripe integration. It provides a complete foundation for modern web applications.
 
-- Node.js (version 14 or higher)
-- npm or yarn
-- Git
+## Package Structure
 
-### Installation
+fireact.dev is organized into three main packages:
 
-You can create a new Fireact project using our CLI tool:
+### Core Package (@fireact.dev/core)
 
-```bash
-npx create-fireact-app my-app
-cd my-app
-```
+The core package provides essential features required for any web application:
 
-Or clone the repository directly:
+- Complete authentication system
+- User profile management
+- Email/password and social authentication
+- Account settings and management
+- Internationalization support
 
-```bash
-git clone https://github.com/username/fireact.git
-cd fireact
-npm install
-```
+This package is required for all fireact.dev applications, including those that use the SaaS features.
 
-### Configuration
+### SaaS Packages
 
-1. Create a new Firebase project at [Firebase Console](https://console.firebase.google.com)
-2. Copy your Firebase configuration
-3. Create a `.env` file in your project root
+The SaaS functionality is provided through two complementary packages that work together:
 
-## Core Concepts
+#### Frontend Package (@fireact.dev/saas)
+- Multiple subscription plans
+- Stripe integration for payments
+- Billing portal and invoice management
+- Team collaboration and workspaces
+- Role-based access control
+- Permission level management
+- User invitations and team management
 
-Learn about the main concepts and architecture of Fireact:
+#### Backend Package (@fireact.dev/saas-cloud-functions)
+- Stripe webhook handling
+- Subscription processing
+- Payment method management
+- Team operations
+- Billing operations
+- Invoice generation
 
-- Firebase Integration
-- Authentication
-- Database Management
-- Storage Solutions
-- Cloud Functions
+**Note:** Both SaaS packages require the core package (@fireact.dev/core) as a foundation, and must be used together to implement the complete SaaS functionality.
 
-## Guides
+## Tech Stack
 
-Explore our detailed guides for specific features and use cases:
+- **Frontend**: React, TypeScript, TailwindCSS
+- **Backend**: Firebase (Authentication, Firestore, Cloud Functions)
+- **Payment Processing**: Stripe
+- **Development Tools**: Vite, ESLint, PostCSS
 
-- User Management
-- Data Modeling
-- Security Rules
-- Deployment
+## Project Structure
+
+The framework is organized into several key components:
+
+- **Core Features**: Essential authentication and user management
+- **SaaS Features**: Subscription, billing, and team management
+  - Frontend components and interfaces
+  - Backend cloud functions and processing
+- **Development Tools**: Local development and testing support
+
+## Documentation Structure
+
+Our documentation is organized into two main sections:
+
+1. **Core Documentation**: Essential features and setup
+   - Authentication system
+   - User profile management
+   - Account settings
+   - Basic configuration
+
+2. **SaaS Documentation**: Advanced features
+   - Frontend components and features
+   - Backend cloud functions
+   - Subscription management
+   - Payment processing
+   - Team collaboration
+   - Permission management
+
+Each section includes its own getting started guide and detailed documentation.
