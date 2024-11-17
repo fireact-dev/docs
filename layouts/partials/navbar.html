@@ -6,15 +6,14 @@
 <nav class="td-navbar navbar-dark js-navbar-scroll
             {{- if $cover }} td-navbar-cover {{- end }}">
 <div class="container-fluid flex-column flex-md-row">
-  <!-- Logo -->
-  <img src="{{ "img/logo.svg" | relURL }}" alt="Fireact Logo" style="height: 32px; margin-right: 10px;">
-  
-  <a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}">
-    {{- /**/ -}}
+  <!-- Logo and title both linking to main site -->
+  <a href="https://fireact.dev" class="navbar-brand">
+    <img src="{{ "img/logo.svg" | relURL }}" alt="Fireact Logo" style="height: 32px; margin-right: 10px;">
     <span class="navbar-brand__name">
       {{- .Site.Title -}}
     </span>
   </a>
+
   <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
     <ul class="navbar-nav">
       {{ $p := . -}}
