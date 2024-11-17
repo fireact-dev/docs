@@ -1,0 +1,58 @@
+{{ $cover := and
+    (.HasShortcode "blocks/cover")
+    (not .Site.Params.ui.navbar_translucent_over_cover_disable)
+-}}
+
+<nav class="td-navbar navbar-dark js-navbar-scroll
+            {{- if $cover }} td-navbar-cover {{- end }}">
+<div class="container-fluid flex-column flex-md-row">
+  <!-- Logo -->
+  <img src="{{ "img/logo.svg" | relURL }}" alt="Fireact Logo" style="height: 32px; margin-right: 10px;">
+  
+  <a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}">
+    {{- /**/ -}}
+    <span class="navbar-brand__name">
+      {{- .Site.Title -}}
+    </span>
+  </a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      {{ $p := . -}}
+      {{ range .Site.Menus.main -}}
+      <li class="nav-item">
+        {{ $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) -}}
+        {{ with .Page }}{{ $active = or $active ( $.IsDescendant .)}}{{ end -}}
+        {{ $pre := .Pre -}}
+        {{ $post := .Post -}}
+        {{ $url := urls.Parse .URL -}}
+        {{ $baseurl := urls.Parse $.Site.Params.Baseurl -}}
+        <a {{/**/ -}}
+          class="nav-link {{- if $active }} active {{- end }}" {{/**/ -}}
+          href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL }}{{ end }}"
+          {{- if ne $url.Host $baseurl.Host }} target="_blank" {{- end -}}
+        >
+            {{- with .Pre }}{{ $pre }}{{ end -}}
+            <span {{- if $active }} class="active" {{- end }}>
+              {{- .Name -}}
+            </span>
+            {{- with .Post }}{{ $post }}{{ end -}}
+        </a>
+      </li>
+      {{ end -}}
+      {{ if .Site.Params.versions -}}
+      <li class="nav-item dropdown d-none d-lg-block">
+        {{ partial "navbar-version-selector.html" . -}}
+      </li>
+      {{ end -}}
+      {{ if (gt (len .Site.Home.Translations) 0) -}}
+      <li class="nav-item dropdown d-none d-lg-block">
+        {{ partial "navbar-lang-selector.html" . -}}
+      </li>
+      {{ end -}}
+    </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    {{ partial "search-input.html" . }}
+  </div>
+</div>
+</nav>

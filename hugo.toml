@@ -27,6 +27,12 @@ anchor = "smart"
 copyright = "fireact.dev"
 privacy_policy = "https://policies.google.com/privacy"
 
+# Favicons
+[params.ui.favicon]
+icon = "img/favicon.ico"
+icon32 = "img/favicon.png"
+apple_touch = "img/apple-touch-icon.png"
+
 # Repository configuration
 github_repo = "https://github.com/fireact-dev/main"
 github_branch = "main"
