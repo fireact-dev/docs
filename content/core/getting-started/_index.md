@@ -187,7 +187,7 @@ Add emulator settings to `config.json`:
     "ports": {
       "auth": 9099,
       "firestore": 8080,
-      "functions": 5555,
+      "functions": 5001,
       "hosting": 5002
     }
   }
