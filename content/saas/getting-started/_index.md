@@ -70,13 +70,26 @@ Create `src/saasConfig.json`:
             "admin": true
         }
     },
+    "settings": {
+        "name": {
+            "type": "string",
+            "required": true,
+            "label": "subscription.name",
+            "placeholder": "subscription.namePlaceholder"
+        }
+    },
     "pages": {
         "billing": "/subscription/:id/billing",
         "createPlan": "/create-plan",
         "subscription": "/subscription/:id",
         "users": "/subscription/:id/users",
         "invite": "/subscription/:id/users/invite",
-        "settings": "/subscription/:id/settings"
+        "settings": "/subscription/:id/settings",
+        "changePlan": "/subscription/:id/billing/change-plan",
+        "cancelSubscription": "/subscription/:id/billing/cancel",
+        "managePaymentMethods": "/subscription/:id/billing/payment-methods",
+        "updateBillingDetails": "/subscription/:id/billing/update-details",
+        "transferOwnership": "/subscription/:id/billing/transfer-ownership"
     }
 }
 ```
