@@ -95,7 +95,7 @@ npm install -D postcss autoprefixer
 ```
 
 Add `postcss.config.js`
-```
+```javascript
 export default {
   plugins: {
     tailwindcss: {},
