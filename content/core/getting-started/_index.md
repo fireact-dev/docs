@@ -82,11 +82,26 @@ export default {
 }
 ```
 
-Add Tailwind directives to `src/index.css`:
+Replace Tailwind directives to `src/index.css`:
 ```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+```
+
+4. Insall PostCSS and Autoprefixer:
+```bash
+npm install -D postcss autoprefixer
+```
+
+Add `postcss.config.js`
+```
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
 ```
 
 ## Configuration
@@ -127,6 +142,14 @@ Create `src/config.json`:
   }
 }
 ```
+
+## Setup i18next Support
+
+1. Create folder `src/i18n/locales`
+
+2. Copy the language files from https://github.com/fireact-dev/core/tree/main/src/i18n/locales
+
+If you wish to add new languages to your application, visit https://docs.fireact.dev/core/adding-languages/
 
 ## Basic Application Setup
 
