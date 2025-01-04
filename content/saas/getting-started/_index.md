@@ -103,6 +103,36 @@ Create `functions/src/saasConfig.json`:
         "secret_api_key": "your_stripe_secret_key",
         "end_point_secret": "your_stripe_webhook_endpoint_secret"
     },
+    "plans": [
+        {
+            "id": "free",
+            "titleKey": "plans.free.title",
+            "popular": false,
+            "priceIds": ["your-stripe-price-id"],
+            "currency": "$",
+            "price": 0,
+            "frequency": "month",
+            "descriptionKeys": [
+                "plans.free.feature1",
+                "plans.free.feature2",
+                "plans.free.feature3"
+            ],
+            "free": true,
+            "legacy": false
+        }
+    ],
+    "permissions": {
+        "access": {
+            "label": "Access",
+            "default": true,
+            "admin": false
+        },
+        "admin": {
+            "label": "Administrator",
+            "default": false,
+            "admin": true
+        }
+    },
     "emulators": {
         "enabled": false,
         "useTestKeys": false
@@ -163,6 +193,24 @@ service cloud.firestore {
       allow write: if false;
     }
   }
+}
+```
+
+### 5. Update Tailwind
+
+Update your `tailwind.config.js` to include the `@fireact.dev/saas` package.
+```Javascript
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@fireact.dev/core/dist/**/*.{js,mjs}",
+    "./node_modules/@fireact.dev/saas/dist/**/*.{js,mjs}"
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
 }
 ```
 
@@ -429,6 +477,53 @@ export {
   getBillingDetails,
   transferSubscriptionOwnership
 }
+```
+
+Update your `functions/tsconfig.json` to load the `saasConfig.json`
+```json
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2017",
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
+  "compileOnSave": true,
+  "include": [
+    "src"
+  ]
+}
+```
+
+## Deploy Web App
+
+1. Build your web application
+```bash
+npm run build
+```
+
+It is recommended updating your `vite.config.ts` to build bigger files to improve the performance.
+```Typescript
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    chunkSizeWarningLimit: 1000, // Increased from default 500kb to 1000kb
+  },
+})
+```
+
+2. Deploy to Firebase:
+```bash
+firebase deploy --only hosting
 ```
 
 ## Deploy Cloud Functions
