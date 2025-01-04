@@ -214,6 +214,14 @@ export default {
 }
 ```
 
+### 6. Setup i18next Support
+
+1. Create folder `src/i18n/locales/saas`
+
+2. Copy the language files from https://github.com/fireact-dev/saas/tree/main/src/i18n/locales/saas
+
+If you wish to add new languages to your application, visit https://docs.fireact.dev/core/adding-languages/
+
 ## Basic Application Setup
 
 Update `src/App.tsx`:
