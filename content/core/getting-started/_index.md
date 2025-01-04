@@ -36,18 +36,40 @@ description: >
    - Click on "Create database"
    - Copy these Firestore rules:
 
-```plaintext
-rules_version = '2';
+    ```plaintext
+    rules_version = '2';
 
-service cloud.firestore {
-  match /databases/{database}/documents {
-    // Allow authenticated users to read and write their own user document
-    match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+    service cloud.firestore {
+      match /databases/{database}/documents {
+        // Allow authenticated users to read and write their own user document
+        match /users/{userId} {
+          allow read, write: if request.auth != null && request.auth.uid == userId;
+        }
+      }
     }
-  }
-}
-```
+    ```
+
+6. **Install Firebase CLI**:
+   ```bash
+   npm install -g firebase-tools
+   ```
+
+7. **Login to Firebase**:
+   ```bash
+   firebase login
+   ```
+
+8. **Initialize Firebase in your project**:
+   ```bash
+   firebase init
+   ```
+
+   Select the following options:
+   - Choose "Hosting" when prompted for features
+   - Select your Firebase project or create a new one
+   - Set build directory to 'dist' (for Vite projects)
+   - Configure as a single-page application: Yes
+   - Don't overwrite index.html
 
 ## Installation
 
@@ -110,6 +132,7 @@ Create `src/config.json`:
 
 ```json
 {
+  "name": "My SaaS",
   "firebase": {
     "apiKey": "your-api-key",
     "authDomain": "your-auth-domain",
@@ -139,6 +162,16 @@ Create `src/config.json`:
     "github": false,
     "twitter": false,
     "yahoo": false
+  },
+  "emulators": {
+    "enabled": false,
+    "host": "localhost",
+    "ports": {
+      "auth": 9099,
+      "firestore": 8080,
+      "functions": 5001,
+      "hosting": 5002
+    }
   }
 }
 ```
@@ -246,26 +279,24 @@ export default App;
 
 ### Firebase Emulators
 
-Add emulator settings to `config.json`:
-```json
-{
-  "emulators": {
-    "enabled": true,
-    "host": "localhost",
-    "ports": {
-      "auth": 9099,
-      "firestore": 8080,
-      "functions": 5001,
-      "hosting": 5002
-    }
-  }
-}
-```
+Update the emulator setting to `true` in the `src/config.json` to switch the application to use local emulators.
 
 Start emulators:
 ```bash
 firebase emulators:start
 ```
+
+## Firebase Deployment
+
+4. Build and deploy:
+```bash
+npm run build
+firebase deploy
+```
+
+Your app will be available at:
+- https://your-project-id.web.app
+- https://your-project-id.firebaseapp.com
 
 ## Next Steps
 
