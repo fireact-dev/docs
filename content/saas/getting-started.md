@@ -163,6 +163,10 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
+    // Allow authenticated users to read and write their own user document
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
     match /subscriptions/{docId} {
       allow list: if request.auth != null;
       allow get: if request.auth != null 
