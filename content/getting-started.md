@@ -93,3 +93,16 @@ Once the `create-fireact-app` command completes, follow these steps to run your 
 
 8.  **Access your application**:
     Your Fireact application will be available in your browser at `http://localhost:5002`.
+
+### Next Steps: Customizing Your SaaS Application
+
+The `create-fireact-app` CLI provides a solid foundation with essential SaaS functionalities like authentication, user management, and subscription handling. However, the generated application is a starting point. To build the specific features and unique user experience for your SaaS product, you will need to engage in custom development.
+
+The **[Custom Development](/custom-development/)** section of this documentation provides comprehensive guides on how to:
+
+*   Develop your own React components and pages.
+*   Understand and manage data fetching within the framework.
+*   Implement and extend localization capabilities.
+*   Configure routing and enforce permission control.
+
+By leveraging the information in the Custom Development section, you can effectively extend the Fireact.dev framework to build the unique features of your SaaS application.
