@@ -16,6 +16,6 @@ The `@fireact.dev/app` package is designed to accelerate your development proces
 ### Sub-sections:
 
 *   **[Components](/app/components/)**: Detailed documentation for all reusable React components.
-*   **[Hooks](/app/hooks/)**: Documentation for custom React hooks that encapsulate reusable logic and stateful behavior.
 *   **[Contexts](/app/contexts/)**: Documentation for React Contexts and their associated Provider components.
+*   **[Hooks](/app/hooks/)**: Documentation for custom React hooks that encapsulate reusable logic and stateful behavior.
 *   **[Types](/app/types/)**: Reference for TypeScript types and interfaces used across the package.
