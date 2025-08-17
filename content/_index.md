@@ -19,7 +19,6 @@ Our goal is to simplify the complexities of building modern SaaS applications, a
 *   **Modern Development Stack**: Leveraging React, TypeScript, and TailwindCSS for a highly performant, maintainable, and visually appealing frontend.
 *   **Scalable Backend**: Utilizing Firebase (Authentication, Firestore, Cloud Functions) for a serverless, scalable, and cost-effective backend infrastructure.
 
-### Key Sections
+### Getting Started
 
-*   **[App Package](/app/)**: Detailed documentation for all reusable React components, hooks, and types provided by `@fireact.dev/app`.
-*   **[Custom Development](/custom-development/)**: Guides and examples for customizing and extending Fireact.dev.
+To begin building your SaaS application with Fireact.dev, follow our comprehensive [Getting Started guide](/getting-started/). It will walk you through the prerequisites, installing the `create-fireact-app` CLI tool, creating a new project, and running your application locally.
