@@ -10,12 +10,12 @@ The `getSubscriptionUsers` Firebase Cloud Function retrieves a paginated list of
 ### Function Signature
 
 ```typescript
-export const getSubscriptionUsers = onCall(async (request) => { ... });
+export const getSubscriptionUsers = https.onCall(async (data, context) => { ... });
 ```
 
 ### Parameters
 
-The function expects the following data in the `request.data` object:
+The function expects the following data in the `data` object:
 
 | Parameter        | Type     | Description                                                              | Required |
 | :--------------- | :------- | :----------------------------------------------------------------------- | :------- |
@@ -25,7 +25,7 @@ The function expects the following data in the `request.data` object:
 
 ### Context
 
-The function requires an authenticated user context (`request.auth`). The authenticated user must also possess an admin permission level within the target subscription.
+The function requires an authenticated user context (`context.auth`). The authenticated user must also possess an admin permission level within the target subscription.
 
 ### Behavior
 
