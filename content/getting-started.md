@@ -106,3 +106,211 @@ The **[Custom Development](/custom-development/)** section of this documentation
 *   Configure routing and enforce permission control.
 
 By leveraging the information in the Custom Development section, you can effectively extend the Fireact.dev framework to build the unique features of your SaaS application.
+
+## Troubleshooting
+
+### Common Setup Issues
+
+#### CLI Command Not Found
+
+If `create-fireact-app` is not recognized after installation:
+
+```bash
+# Check global npm path
+npm config get prefix
+
+# Use npx instead (no installation needed)
+npx create-fireact-app my-app
+```
+
+#### Firebase Login Issues
+
+If `firebase login` fails or hangs:
+
+```bash
+# Try CI mode (opens browser authentication)
+firebase login --no-localhost
+
+# Or clear cache and retry
+rm -rf ~/.config/firebase
+firebase login
+```
+
+#### Node.js Version Error
+
+Fireact.dev requires Node.js v18 or higher:
+
+```bash
+# Check your version
+node -v
+
+# Upgrade using nvm (recommended)
+nvm install 18
+nvm use 18
+```
+
+### Build and Emulator Issues
+
+#### Emulators Won't Start
+
+If Firebase emulators fail to start:
+
+1. **Check port availability**:
+   ```bash
+   # Common ports used by emulators
+   lsof -i :5173  # Vite dev server
+   lsof -i :9099  # Auth emulator
+   lsof -i :8080  # Firestore emulator
+   lsof -i :5001  # Functions emulator
+   lsof -i :5002  # Hosting emulator
+   ```
+
+2. **Ensure functions are built**:
+   ```bash
+   cd functions
+   npm run build
+   cd ..
+   ```
+
+3. **Check Java installation** (required for Firestore emulator):
+   ```bash
+   java -version
+   # Install Java if missing
+   ```
+
+#### Build Errors
+
+If you encounter build errors:
+
+```bash
+# Clean and rebuild
+rm -rf node_modules dist
+npm install
+npm run build
+
+# For functions
+cd functions
+rm -rf node_modules lib
+npm install
+npm run build
+cd ..
+```
+
+### Stripe Integration Issues
+
+#### Webhook Secret Mismatch
+
+If Stripe webhooks fail with signature verification errors:
+
+1. Get new webhook secret from Stripe CLI:
+   ```bash
+   stripe listen --forward-to http://127.0.0.1:5001/YOUR_PROJECT_ID/us-central1/stripeWebhook
+   ```
+
+2. Copy the webhook signing secret (starts with `whsec_`)
+
+3. Update `functions/src/config/stripe.config.json`:
+   ```json
+   {
+     "endpointSecret": "whsec_YOUR_NEW_SECRET_HERE"
+   }
+   ```
+
+4. Rebuild functions:
+   ```bash
+   cd functions && npm run build && cd ..
+   ```
+
+5. Restart emulators
+
+#### Test Card Not Working
+
+Use these Stripe test card numbers:
+
+- **Success**: `4242 4242 4242 4242`
+- **Requires Authentication**: `4000 0025 0000 3155`
+- **Declined**: `4000 0000 0000 9995`
+
+**For all test cards:**
+- Expiry: Any future date
+- CVC: Any 3 digits
+- ZIP: Any valid ZIP code
+
+### Authentication Issues
+
+#### User Not Redirected After Sign-In
+
+If the user is stuck on the sign-in page after authentication:
+
+1. Clear browser cache (Cmd+Shift+R or Ctrl+Shift+R)
+2. Check browser console for errors
+3. Verify routing configuration in your app
+4. Ensure emulators are running
+
+#### Password Reset Email Not Received
+
+In **emulator mode**:
+- Emails are not sent
+- Check the Auth emulator UI at http://localhost:4000
+- Look for reset links in the Auth tab
+
+In **production**:
+- Check spam folder
+- Verify email templates in Firebase Console
+- Check email quota limits
+
+### Firestore Issues
+
+#### Permission Denied Errors
+
+If you see "Permission denied" errors when accessing Firestore:
+
+1. **In emulator mode**: Check `firestore.rules` file
+2. **Restart emulators** after rule changes
+3. **Verify user is authenticated**
+4. **Check Firestore rules** in Firebase Console (production)
+
+#### Data Not Appearing
+
+If data doesn't appear in your application:
+
+1. Check Firestore emulator UI: http://localhost:4000
+2. Verify collection and document names
+3. Check query filters and where clauses
+4. Look for errors in browser console
+
+### Getting Help
+
+If you're still experiencing issues:
+
+1. **Check the comprehensive troubleshooting guide**: [Troubleshooting Documentation](https://github.com/fireact-dev/fireact.dev/blob/main/TROUBLESHOOTING.md)
+
+2. **Search existing issues**: [GitHub Issues](https://github.com/fireact-dev/fireact.dev/issues)
+
+3. **Ask the community**: GitHub Discussions
+
+4. **Report a bug**: Create a new issue with:
+   - Clear description of the problem
+   - Steps to reproduce
+   - Expected vs actual behavior
+   - Your environment (OS, Node version, browser)
+   - Error messages and logs
+
+### Quick Reference
+
+```bash
+# Common commands
+create-fireact-app my-app          # Create new app
+firebase emulators:start           # Start emulators
+firebase emulators:start --export-on-exit  # Save data on exit
+stripe listen --forward-to ...     # Start Stripe webhooks
+npm run build                      # Build React app
+cd functions && npm run build      # Build functions
+
+# Troubleshooting commands
+firebase --version                 # Check Firebase CLI version
+node --version                     # Check Node version
+npm cache clean --force           # Clear npm cache
+rm -rf node_modules               # Remove dependencies
+git submodule update --init       # Initialize submodules
+```
