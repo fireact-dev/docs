@@ -3,7 +3,7 @@ title: "@fireact.dev/app Package"
 linkTitle: "App Package"
 type: "docs"
 no_list: true
-weight: 20
+weight: 40
 menu:
   docs:
     parent: "app"

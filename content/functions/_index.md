@@ -1,7 +1,7 @@
 ---
 title: "Functions Package"
 linkTitle: "Functions Package"
-weight: 30
+weight: 50
 no_list: true
 description: >
   Documentation for Firebase Cloud Functions and related types.

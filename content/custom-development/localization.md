@@ -15,41 +15,127 @@ Fireact.dev applications are built with multi-language support using `react-i18n
     *   `react-i18next` provides the React bindings, including the `useTranslation` hook.
 
 2.  **Translation Files**:
-    Translations are typically organized into JSON files, one for each language. In a Fireact.dev application, these are often found in the `src/i18n` directory. Each file contains key-value pairs where the key is a unique identifier for a piece of text, and the value is its translation in that specific language.
+    Translations are organized into **TypeScript files** (`.ts`), one for each language. In a Fireact.dev application, these are found in the `src/i18n` directory. Each file exports a default object with a **nested structure** for organized translations.
 
     **Example (`src/i18n/en.ts`):**
     ```typescript
-    const en = {
-      translation: {
-        'app.title': 'My Fireact App',
-        'welcome.message': 'Welcome to our application!',
-        'subscription.untitled': 'Untitled Subscription',
-        'plans.title': 'Plan',
-        // ... other translations
+    export default {
+      languageName: "English",
+      stripeLocale: "en",
+
+      auth: {
+        signin: "Sign in",
+        signout: "Sign out",
+        email: "Email address",
+        password: "Password",
+        // ... other auth translations
+      },
+
+      profile: {
+        title: "User Profile",
+        userId: "User ID",
+        edit: {
+          name: "Edit Name",
+          email: "Edit Email",
+        },
+        // ... other profile translations
+      },
+
+      subscription: {
+        singular: "project",
+        plural: "projects",
+        create: "Create New {{type}}",
+        // ... other subscription translations
+      },
+
+      plans: {
+        title: "Subscription Plans",
+        free: {
+          title: "Free",
+          feature1: "10 users included",
+          // ... other features
+        },
+        // ... other plans
+      },
+
+      ui: {
+        dashboard: "Dashboard",
+        save: "Save",
+        cancel: "Cancel",
+        // ... other UI translations
       }
     };
-    export default en;
     ```
+
+    **Important Notes:**
+    - Files are **TypeScript (`.ts`)**, NOT JSON (`.json`)
+    - Use `export default { ... }` syntax
+    - Structure is **nested by category** (auth, profile, subscription, etc.)
+    - Translation keys use **dot notation** when referenced: `t('auth.signin')`
+    - Supports **interpolation** with `{{variable}}` syntax
 
 ### How to Add Labels (Translations):
 
 To add a new translatable label to your application:
 
-1.  **Define the Key-Value Pair**: Open the translation files for each language (e.g., `src/i18n/en.ts`, `src/i18n/zh.ts`, etc.) and add your new key-value pair. Ensure the key is consistent across all languages, and the value is the translated text for that language.
+1.  **Define in Nested Structure**: Open the translation files for each language (e.g., `src/i18n/en.ts`, `src/i18n/zh.ts`, etc.) and add your new translation in the appropriate category. Ensure the structure is consistent across all languages.
 
-    **Example (adding a new label `button.submit`):**
-    *   `src/i18n/en.ts`:
-        ```typescript
-        // ...
-        'button.submit': 'Submit',
-        // ...
-        ```
-    *   `src/i18n/zh.ts`:
-        ```typescript
-        // ...
-        'button.submit': '提交',
-        // ...
-        ```
+    **Example (adding a new label in the `ui` category):**
+
+    **`src/i18n/en.ts`:**
+    ```typescript
+    export default {
+      // ... other categories
+
+      ui: {
+        dashboard: "Dashboard",
+        save: "Save",
+        cancel: "Cancel",
+        // Add new label here
+        submit: "Submit",
+        confirm: "Confirm",
+      },
+
+      // ... other categories
+    };
+    ```
+
+    **`src/i18n/zh.ts`:**
+    ```typescript
+    export default {
+      // ... other categories
+
+      ui: {
+        dashboard: "仪表板",
+        save: "保存",
+        cancel: "取消",
+        // Add Chinese translation
+        submit: "提交",
+        confirm: "确认",
+      },
+
+      // ... other categories
+    };
+    ```
+
+    **Adding a New Category:**
+    ```typescript
+    export default {
+      // ... existing categories
+
+      // New category for custom feature
+      tasks: {
+        title: "Tasks",
+        create: "Create Task",
+        edit: "Edit Task",
+        delete: "Delete Task",
+        status: {
+          pending: "Pending",
+          completed: "Completed",
+        },
+      },
+    };
+    ```
 
 2.  **Use the `useTranslation` Hook**: In your React component, import and use the `useTranslation` hook to get the `t` (translation) function.
 
@@ -60,10 +146,43 @@ To add a new translatable label to your application:
       const { t } = useTranslation();
 
       return (
-        <button>{t('button.submit')}</button>
+        <div>
+          <h1>{t('ui.dashboard')}</h1>
+          <button>{t('ui.submit')}</button>
+          <button>{t('ui.cancel')}</button>
+        </div>
       );
     }
     ```
+
+    **Using Nested Keys:**
+    ```typescript
+    function TaskComponent() {
+      const { t } = useTranslation();
+
+      return (
+        <div>
+          <h2>{t('tasks.title')}</h2>
+          <button>{t('tasks.create')}</button>
+          <span>{t('tasks.status.pending')}</span>
+        </div>
+      );
+    }
+    ```
+
+    **Using Interpolation:**
+    ```typescript
+    function SubscriptionComponent() {
+      const { t } = useTranslation();
+      const type = t('subscription.singular'); // "project"
+
+      return (
+        <button>{t('subscription.create', { type })}</button>
+        // Renders: "Create New project"
+      );
+    }
+    ```
+
     The `t` function will automatically return the correct translation based on the currently active language.
 
 ### Adding or Removing Languages:
