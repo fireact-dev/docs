@@ -10,6 +10,12 @@ cascade:
 
 This section is dedicated to guiding developers through custom development within a Fireact.dev application. To effectively extend and customize your project, it's essential to understand the core architectural patterns and how various framework components interact.
 
+### AI-Assisted Development with Claude Code
+
+Every Fireact project scaffolded with `create-fireact-app` includes a built-in **Claude Code skill** that lets you customize your app using natural language. Instead of manually editing multiple files, you can describe what you want and the skill handles the rest — creating components, updating routes, adding i18n keys, and more.
+
+See the [Claude Code Integration](claude-code/) guide for details.
+
 ### Key Areas for Custom Development:
 
 To get started with custom development, familiarize yourself with the following fundamental aspects of a Fireact.dev application:
