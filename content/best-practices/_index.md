@@ -212,4 +212,4 @@ const processUser = async (data: any) => {
 
 ## Contributing
 
-Have best practices to share? See our [Contributing Guide](https://github.com/fireact-dev/fireact.dev/blob/main/CONTRIBUTING.md) to submit your suggestions.
+Have best practices to share? See our [Contributing Guide](https://github.com/fireact-dev/main/blob/main/CONTRIBUTING.md) to submit your suggestions.

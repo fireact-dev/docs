@@ -73,4 +73,4 @@ Master production-ready development with [Best Practices](/best-practices/):
 - **Need code?** Check [Examples](/examples/)
 - **Building a feature?** Follow [Tutorials](/tutorials/)
 - **Production ready?** Review [Best Practices](/best-practices/)
-- **Troubleshooting?** See [Troubleshooting Guide](https://github.com/fireact-dev/fireact.dev/blob/main/TROUBLESHOOTING.md)
+- **Troubleshooting?** See [Troubleshooting Guide](https://github.com/fireact-dev/main/blob/main/TROUBLESHOOTING.md)

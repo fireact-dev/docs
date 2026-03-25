@@ -283,9 +283,9 @@ If data doesn't appear in your application:
 
 If you're still experiencing issues:
 
-1. **Check the comprehensive troubleshooting guide**: [Troubleshooting Documentation](https://github.com/fireact-dev/fireact.dev/blob/main/TROUBLESHOOTING.md)
+1. **Check the comprehensive troubleshooting guide**: [Troubleshooting Documentation](https://github.com/fireact-dev/main/blob/main/TROUBLESHOOTING.md)
 
-2. **Search existing issues**: [GitHub Issues](https://github.com/fireact-dev/fireact.dev/issues)
+2. **Search existing issues**: [GitHub Issues](https://github.com/fireact-dev/main/issues)
 
 3. **Ask the community**: GitHub Discussions
 
@@ -359,16 +359,16 @@ Deep dive into **[Custom Development](/custom-development/)** to understand:
 ### 6. Production Readiness
 Before deploying to production, review:
 - **[Best Practices](/best-practices/)** - Code organization, performance, error handling, testing
-- **[Security Guide](https://github.com/fireact-dev/fireact.dev/blob/main/SECURITY.md)** - Authentication, authorization, data protection
-- **[Deployment Guide](https://github.com/fireact-dev/fireact.dev/blob/main/DEPLOYMENT.md)** - Deploy to Firebase, Vercel, AWS, or Docker
+- **[Security Guide](https://github.com/fireact-dev/main/blob/main/SECURITY.md)** - Authentication, authorization, data protection
+- **[Deployment Guide](https://github.com/fireact-dev/main/blob/main/DEPLOYMENT.md)** - Deploy to Firebase, Vercel, AWS, or Docker
 
 ## Additional Resources
 
 - **[API Reference](/app/)** - Complete documentation of all components and hooks
 - **[Functions Reference](/functions/)** - Cloud Functions API documentation
-- **[Architecture Overview](https://github.com/fireact-dev/fireact.dev/blob/main/ARCHITECTURE.md)** - System design and architecture
-- **[Contributing Guide](https://github.com/fireact-dev/fireact.dev/blob/main/CONTRIBUTING.md)** - Contribute to Fireact.dev
-- **[GitHub Discussions](https://github.com/fireact-dev/fireact.dev/discussions)** - Ask questions and share ideas
+- **[Architecture Overview](https://github.com/fireact-dev/main/blob/main/ARCHITECTURE.md)** - System design and architecture
+- **[Contributing Guide](https://github.com/fireact-dev/main/blob/main/CONTRIBUTING.md)** - Contribute to Fireact.dev
+- **[GitHub Discussions](https://github.com/fireact-dev/main/discussions)** - Ask questions and share ideas
 
 ## Quick Tips for Success
 

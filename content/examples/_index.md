@@ -59,4 +59,4 @@ Each example includes:
 
 Have a useful code snippet to share? We welcome contributions!
 
-See our [Contributing Guide](https://github.com/fireact-dev/fireact.dev/blob/main/CONTRIBUTING.md) for details on how to submit your examples.
+See our [Contributing Guide](https://github.com/fireact-dev/main/blob/main/CONTRIBUTING.md) for details on how to submit your examples.

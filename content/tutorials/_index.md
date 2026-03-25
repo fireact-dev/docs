@@ -51,6 +51,6 @@ Before starting these tutorials, you should:
 
 If you get stuck:
 
-- Check the [Troubleshooting Guide](https://github.com/fireact-dev/fireact.dev/blob/main/TROUBLESHOOTING.md)
+- Check the [Troubleshooting Guide](https://github.com/fireact-dev/main/blob/main/TROUBLESHOOTING.md)
 - Review the [API Documentation](/app/)
-- Ask questions in [GitHub Discussions](https://github.com/fireact-dev/fireact.dev/discussions)
+- Ask questions in [GitHub Discussions](https://github.com/fireact-dev/main/discussions)

@@ -729,4 +729,4 @@ Check:
 - Verify Firestore emulator UI shows the task
 - Check component is subscribed to real-time updates
 
-For more help, see the [Troubleshooting Guide](https://github.com/fireact-dev/fireact.dev/blob/main/TROUBLESHOOTING.md).
+For more help, see the [Troubleshooting Guide](https://github.com/fireact-dev/main/blob/main/TROUBLESHOOTING.md).

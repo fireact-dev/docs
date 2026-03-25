@@ -223,7 +223,7 @@ theme = "docsy"
 
 [params]
   description = "Official documentation for Fireact.dev"
-  github_repo = "https://github.com/fireact-dev/fireact.dev"
+  github_repo = "https://github.com/fireact-dev/main"
 
   [params.ui]
   navbar_logo = true
@@ -412,7 +412,7 @@ hugo server -p 1314
 - **Docsy Theme Docs**: https://www.docsy.dev/docs/
 - **Markdown Guide**: https://www.markdownguide.org/
 - **Hugo Shortcodes**: https://gohugo.io/content-management/shortcodes/
-- **Main Project**: https://github.com/fireact-dev/fireact.dev
+- **Main Project**: https://github.com/fireact-dev/main
 
 ## License
 
