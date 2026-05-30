@@ -25,3 +25,6 @@ Thumbs.db
 
 # Docsy specific
 package-lock.json
+
+# Worktrees for isolated feature work — never tracked.
+.worktree/
