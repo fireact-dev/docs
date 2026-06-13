@@ -25,6 +25,7 @@ Here is a list of the available Cloud Functions:
 *   [`getBillingDetails`](/functions/functions/getBillingDetails/)
 *   [`getPaymentMethods`](/functions/functions/getPaymentMethods/)
 *   [`getSubscriptionUsers`](/functions/functions/getSubscriptionUsers/)
+*   [`getUserSubscriptions`](/functions/functions/getUserSubscriptions/)
 *   [`rejectInvite`](/functions/functions/rejectInvite/)
 *   [`removeUser`](/functions/functions/removeUser/)
 *   [`revokeInvite`](/functions/functions/revokeInvite/)
